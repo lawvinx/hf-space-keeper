@@ -14,14 +14,19 @@ jobs:
         run: |
           echo "=== lawvinx-hf ==="
           HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://huggingface.co/spaces/lawvinx/lawvinx-hf)
-          echo "时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-          echo "HTTP: $HTTP_CODE"
-          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] && echo "✅ 在线" || echo "⚠️ 休眠/离线"
+          echo "时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC') HTTP: $HTTP_CODE"
+          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] && echo "✅ 在线" || echo "⚠️ 休眠"
 
       - name: Ping lawvinx-imgbed
         run: |
           echo "=== lawvinx-imgbed ==="
           HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://huggingface.co/spaces/lawvinx/lawvinx-imgbed)
-          echo "时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-          echo "HTTP: $HTTP_CODE"
-          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] && echo "✅ 在线" || echo "⚠️ 休眠/离线"
+          echo "时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC') HTTP: $HTTP_CODE"
+          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] && echo "✅ 在线" || echo "⚠️ 休眠"
+
+      - name: Ping legal-rag
+        run: |
+          echo "=== legal-rag ==="
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://huggingface.co/spaces/lawvinx/legal-rag)
+          echo "时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC') HTTP: $HTTP_CODE"
+          [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 400 ] && echo "✅ 在线" || echo "⚠️ 休眠"
